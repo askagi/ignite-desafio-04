@@ -1,0 +1,114 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documentação do desafio 4 - Ignite",
+    "description": "Documentação do desafio 04 do curso ignite da rocketseat",
+    "version": "1.0.0",
+    "contact": {
+      "email": "josecostasantos.jr@gmail.com"
+    }
+  },
+
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "Cadastra um usuário",
+        "description": "Cadastra um novo usuário",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+
+                  "name": {
+                    "type": "string"
+                  },
+
+                  "email": {
+                    "type": "string"
+                  }           
+                },
+                "example": {
+                  "name": "José",
+                  "email": "jose@email.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuário criado com sucesso"
+          },
+          "400": {
+            "description": "Email já está sendo usado por outro usuário"     }
+        }
+      },
+      "get": {
+        "tags": ["Users"],
+        "summary": "Lista todos os usuários",
+        "description": "Retorna todos os usuários",
+        "parameters": {},
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "Schema": {
+                  "type": "array",
+                  "items": {
+                    "type":"object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "email": {
+                       "type": "string" 
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Usuário não tem permissão de administrador"
+          }
+        }
+      }
+    },
+    "/users/{user_id}": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Retorna um usuário especifico",
+        "desciprtion": "Retorna um usuário especifico",
+        "parameters": {},
+        "responses": {
+          "200": {
+            "description": "Retoro concluidocom sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      }
+    }
+  }
+}
