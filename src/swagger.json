@@ -66,6 +66,15 @@
                       },
                       "email": {
                        "type": "string" 
+                      },
+                      "admin": {
+                        "type": "boolean"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
                       }
                     }
                   }
@@ -98,6 +107,15 @@
                     },
                     "email": {
                       "type": "string"
+                    },
+                    "admin": {
+                      "type": "boolean"
+                    },
+                    "created_at": {
+                      "type": "string"
+                    },
+                    "updated_at": {
+                      "type": "string"
                     }
                   }
                 }
@@ -106,6 +124,53 @@
           },
           "400": {
             "description": "Usuário não encontrado"
+          }
+        }
+      }
+    },
+    "/users/{userId}/admin": {
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Turn user into an Admin",
+        "description": "Route responsible for making an user an admin.",
+        "parameters": {
+          
+        },
+        "responses": {
+          "200": {
+            "description": "Success making the user an admin.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "admin": {
+                        "type": "boolean"
+                      },
+                      "created_at": {
+                        "type": "string"
+                      },
+                      "updated_at": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User not found."
           }
         }
       }
